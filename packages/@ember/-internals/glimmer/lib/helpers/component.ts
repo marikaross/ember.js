@@ -22,9 +22,10 @@
 
   ```app/controllers/application.js
   import Controller from '@ember/controller';
+  import { tracked } from '@glimmer/tracking';
 
   export default class extends Controller {
-    isMarketOpen = 'live-updating-chart'
+    @tracked isMarketOpen = 'live-updating-chart'
 
     get infographicComponentName() {
       return this.isMarketOpen ? 'live-updating-chart' : 'market-close-summary';
@@ -65,9 +66,10 @@
   ```app/controllers/application.js
   import Controller from '@ember/controller';
   import { computed } from '@ember/object';
+  import { tracked } from '@glimmer/tracking';
 
   export default class extends Controller {
-    isMarketOpen = 'live-updating-chart'
+    @tracked isMarketOpen = 'live-updating-chart'
 
     get lastUpdateTimestamp() {
       return new Date();
