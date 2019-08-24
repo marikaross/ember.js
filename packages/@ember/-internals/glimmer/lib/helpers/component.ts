@@ -24,6 +24,8 @@
   import Controller from '@ember/controller';
 
   export default class extends Controller {
+    isMarketOpen = 'live-updating-chart'
+
     get infographicComponentName() {
       return this.isMarketOpen ? 'live-updating-chart' : 'market-close-summary';
     }
@@ -64,15 +66,17 @@
   import Controller from '@ember/controller';
   import { computed } from '@ember/object';
 
-  export default Controller.extend({
+  export default class extends Controller {
+    isMarketOpen = 'live-updating-chart'
+
     get lastUpdateTimestamp() {
       return new Date();
-    }),
+    }
 
     get infographicComponentName() {
       return this.isMarketOpen ? 'live-updating-chart' : 'market-close-summary';
-    })
-  });
+    }
+  }
   ```
 
   And the following component template:
